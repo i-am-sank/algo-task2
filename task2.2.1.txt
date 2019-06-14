@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+     int n,q,i,j,a[q][3],b[n],max=0;
+	cin>>n>>q;
+	for(i=0;i<q;i++)
+	for(j=0;j<3;j++)
+	cin>>a[i][j];
+	
+	for(i=0;i<n;i++)
+	b[i]=i;
+	
+	for(i=0;i<q;i++)
+	for(j=a[i][0];j<=a[i][1];j++)
+	b[j]+=a[i][2];
+	
+	for(i=0;i<n;i++)
+	if(max<b[i])
+	max=b[i];
+	
+	cout<<max;
+}

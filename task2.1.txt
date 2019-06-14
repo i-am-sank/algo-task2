@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t,n,i,count,j,k,max;
+	char s[106];
+	
+	cin>>t;
+	while(t--)
+	{   cin>>s;
+	     n=strlen(s);
+	     int a[n]={};
+	      count=0;k=0;
+	    for(i=0;i<n;i++)
+		{
+			if(s[i]=='<')
+			count++;
+			if(s[i]=='>')
+			{
+				if(count>0)
+				count--;
+				else
+				break;
+			}
+			if(count==1)
+			a[i]=1;
+			if(count==0)
+			a[i]=-1;
+		} count=0;max=0;
+		for(i=0;i<n;i++)
+		{
+			if(a[i]==1&&count==0)
+			{
+				j=i;
+				count++;
+			}
+			if(a[i]==-1)
+			{
+				k=i;
+				count--;
+			}
+		 if(max<(k-j+1)&&k>0)
+		 max=k-j+1;	
+			
+		}
+		cout<<max<<endl;
+	}
+}
